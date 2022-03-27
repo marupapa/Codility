@@ -1,20 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
+// using System.Collections.Generic;
+// using System.Linq;
 
 class CyclicRotation 
 { 
-    public async int[] solution(int[] A, int K)
+    public int[] solution(int[] A, int K)
     {
-        // int[] result = new int[A.Length];
-        // for (int i = 0; i < A.Length; i++)
-        // {
-        //     result[(i + K) % A.Length] = A[i];
-        // }
-
-        // return result;
-        if (0 > A.Length) return A;
-
+        if (A == null || A.Length == 0) return A;
         int arrLength = A.Length;
 
         for (int i = 0; i < K; i++)
@@ -22,10 +14,7 @@ class CyclicRotation
             int[] changedArr = new int[arrLength]; // changed array
             var changeArrayValue = A[arrLength - 1]; // Last value array 
             changedArr[0] = changeArrayValue; // last Arr value change to first array
-            for (int y = 0; y < arrLength - 1; y++)
-            {
-                changedArr[y + 1] = A[y];
-            }
+            for (int y = 0; y < arrLength - 1; y++) changedArr[y + 1] = A[y];
 
             A = changedArr;
         }
