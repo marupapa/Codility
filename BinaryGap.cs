@@ -11,15 +11,18 @@ class Solution {
         string binary = Convert.ToString(N, 2);
 
         int gapCnt = 0;
-        int totCnt = 0;
+        int topCnt = 0;
 
         for (int i = 0; i < binary.Length; i++)
         {
             var item = binary.Substring(i, 1);
 
-            if (!item.Equals("1"))
+            if (item.Equals("1"))
             {
-                if (totCnt < gapCnt) totCnt = gapCnt;
+                if (topCnt < gapCnt) 
+                {
+                    topCnt = gapCnt;
+                }
                 gapCnt = 0;
             }
             else 
@@ -28,6 +31,6 @@ class Solution {
             }
         }
         
-        return totCnt;
+        return topCnt;
     }
 }
